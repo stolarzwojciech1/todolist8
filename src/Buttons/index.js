@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 
-const Buttons =({tasks, hideDoneTask}) =>(
+const Buttons =({tasks, hideDone, toggleHideDone}) =>(
 
 
   
@@ -10,8 +10,8 @@ const Buttons =({tasks, hideDoneTask}) =>(
 
 {tasks.length >0 && (
  <React.Fragment>
-<button className="section__button">
- {hideDoneTask ? " Show" : " Hide"}
+<button onClick ={toggleHideDone} className="section__button">
+ {hideDone ? " Show " : " Hide "}
              Done Tasks
          </button>
          <button 
