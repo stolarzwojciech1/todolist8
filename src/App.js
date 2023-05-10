@@ -4,12 +4,17 @@ import Buttons from "./Buttons"
 import Section from "./Section";
 import Header from "./Header";
 import Container from "./Container";
+import * as goodBye from "./utils/hello"
+
+goodBye.goodBye();
+console.log(goodBye.name);
+ 
 const tasks =[
-{content:"ss", done:false},
-{content:"ssss", done:true},
+{id:1, content:"ss", done:false},
+{id:2, content:"ssss", done:true},
 
 ];
-const hideDoneTasks = false;
+const hideDone = false;
 function App() {
   return (
     <body className="body">
@@ -25,11 +30,12 @@ function App() {
        
        <Section
        title="Lista zadań"
-       body={<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks}/>}
-        extraHeaderContent={<Buttons tasks={tasks} hideDoneTasks={hideDoneTasks}/>}
+       body={<Tasks tasks={tasks} hideDone={hideDone}/>}
+        extraHeaderContent={<Buttons tasks={tasks} hideDone={hideDone}/>}
 />
 
-        
+
+
     </Container>
 </body>
   );
