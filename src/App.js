@@ -9,23 +9,30 @@ import * as goodBye from "./utils/hello"
 
 goodBye.goodBye();
 console.log(goodBye.name);
- 
-const tasks =[
-{id:1, content:"ss", done:false},
-{id:2, content:"ssss", done:true},
-{id:2, content:"ssss", done:true},
-
-];
 
 function App() {
 
 const [hideDone, setHideDone] = useState(false);
+const [tasks, setTasks] = useState([
+  {id:1, content:"ss", done:false},
+  {id:2, content:"ssss", done:true},
+  {id:3, content:"ssss", done:true},
+  
+  ]);
+
 
 const toggleHideDone = () => {
 
   setHideDone(hideDone => !hideDone);
 
 }
+
+const removeTask = (id) =>{
+setTasks(tasks => tasks.filter(task => tasks.id !==  id));
+
+
+}
+
 
   return (
     <body className="body">
@@ -42,7 +49,7 @@ const toggleHideDone = () => {
        <Section
        title="Lista zadań"
        body={
-       <Tasks tasks={tasks} hideDone={hideDone}/>
+       <Tasks tasks={tasks} hideDone={hideDone} removeTask={removeTask}/>
       }
         extraHeaderContent={
         <Buttons 
