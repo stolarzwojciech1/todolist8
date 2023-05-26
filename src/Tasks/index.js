@@ -1,7 +1,7 @@
 import "./style.css";
 
 
-const Tasks =({tasks, hideDone, removeTask})=>{
+const Tasks =({tasks, hideDone, removeTask, toggleTaskDone})=>{
 
 
     return(
@@ -13,8 +13,13 @@ const Tasks =({tasks, hideDone, removeTask})=>{
             hideDone && task.done 
             ? "list__item--hidden" : ""}`}>
             
-                        <button className="list__button list__button--toggleDone">
+                        <button className="list__button list__button--toggleDone"
+                        onClick = {()=>  toggleTaskDone(task.id)} 
+                        
+                        >
                             {task.done ? "✓" : ""}
+
+
                         </button>
                         <span className={`list__item${task.done ? "list__item list__item--done" : "list__item"}`}>
                             {task.content}
@@ -27,7 +32,7 @@ const Tasks =({tasks, hideDone, removeTask})=>{
                         className="list__button list__button--remove"
 
 
-                        onClick = {()=>  removeTask(tasks.id)}                        
+                        onClick = {()=>  removeTask(task.id)}                        
                         >
                         🗑
                         </button>
