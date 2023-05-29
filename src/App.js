@@ -32,6 +32,14 @@ const removeTask = (id) =>{
 setTasks(tasks => tasks.filter(task => task.id !==  id));
 
 }
+
+const marksAllTaksAsDone = () =>{
+  // setTasks(tasks => tasks.map(task => ({...task, done:true,})));
+  alert("Hello! I am an alert box!!");
+
+};
+
+
 const toggleTaskDone = (id) =>{
 
   setTasks(tasks => tasks.map(task => {
@@ -40,6 +48,8 @@ return {...task, done: !task.done};
 
 
 }
+
+
 return task;
   }));
   
@@ -64,7 +74,10 @@ return task;
        title="Lista zadań"
        body={
        <Tasks tasks={tasks} hideDone={hideDone} removeTask={removeTask}
-       toggleTaskDone={toggleTaskDone}/>
+       toggleTaskDone={toggleTaskDone}
+       marksAllTaksAsDone={marksAllTaksAsDone}
+       
+       />
       }
         extraHeaderContent={
         <Buttons 
