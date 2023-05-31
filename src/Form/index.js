@@ -6,6 +6,7 @@ const Form = ({ addNewTask }) => {
   const onFormSubmit = (event) => {
     event.preventDefult();
     addNewTask(newTaskContent.trim());
+
   };
 
   return (
