@@ -4,9 +4,9 @@ import React, { useState } from "react";
 const Form = ({ addNewTask }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
   const onFormSubmit = (event) => {
-    event.preventDefult();
+    event.preventDefault();
     addNewTask(newTaskContent.trim());
-
+setNewTaskContent("");
   };
 
   return (
